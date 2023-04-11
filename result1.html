@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 3</title>
+  </head>
+  <body>
+    <script>
+      // A.
+      const arrays = [
+        { name: "Win", age: 25 },
+        { name: "Ton", age: 25 },
+        { name: "Jeff", age: 33 },
+        { name: "Boat", age: 26 }
+      ];
+
+      let maxAge = 0;
+      let maxAgeUser;
+
+      for (let i = 0; i < arrays.length; i++) {
+        if (arrays[i].age > maxAge) {
+          maxAge = arrays[i].age;
+          maxAgeUser = arrays[i].name;
+        }
+      }
+
+      console.log(`The user with the maximum age is ${maxAgeUser} with an age of ${maxAge}.`);
+
+      //   B.
+
+      function getAgeByName(name) {
+        const array = arrays.find(array => array.name.toLowerCase() === name.toLowerCase());
+        return array ? array.age : null;
+      }
+
+      console.log(getAgeByName("Boat"));
+
+      //   C.
+
+      function groupArrayByAge(arrays) {
+        const groups = {};
+
+        for (let array of arrays) {
+          if (groups[array.age]) {
+            groups[array.age].push(array.name);
+          } else {
+            groups[array.age] = [array.name];
+          }
+        }
+        return [groups];
+      }
+
+      console.log(groupArrayByAge(arrays));
+
+      //   5.
+
+      function letNumber(number) {
+        if (number % 2 === 0) {
+          console.log("Please enter odd number");
+          return;
+        }
+      }
+    </script>
+  </body>
+</html>
